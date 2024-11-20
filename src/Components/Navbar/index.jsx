@@ -17,16 +17,18 @@ const Navbar = () => {
       window.location.href = '/SignIn'; // Redirect to Sign In page after signing out
     } 
   };
-  const name =()=>{
+
+  const name = () => {
     if(localStorage?.account){
       return JSON.parse(localStorage.account).email
     }
     else{
       return 'noUser@ShoppingBagIcon.com'
     }
-  }
+  };
+
   return (
-    <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 bg-white shadow-md text-sm font-light">
+    <nav className="flex justify-between items-center fixed z-30 top-0 w-full py-10 px-8 bg-white shadow-md text-sm font-light">
       <ul className="flex items-center space-x-4">
         <li className="font-bold text-lg">
           <NavLink to='/shopi' className="hover:text-blue-700">
@@ -34,42 +36,44 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('')}>
+          <NavLink to='/' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('')}>
             All
           </NavLink>
         </li>
         <li>
-          <NavLink to='/Cuadros' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('Cuadros')}>
+          <NavLink to='/Cuadros' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('Cuadros')}>
             Cuadros
           </NavLink>
         </li>
         <li>
-          <NavLink to='Esculturas' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('Esculturas')}>
+          <NavLink to='Esculturas' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('Esculturas')}>
             Esculturas
           </NavLink>
         </li>
         <li>
-          <NavLink to='/Artesanias' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('Artesanias')}>
+          <NavLink to='/Artesanias' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('Artesanias')}>
             Artesanias
           </NavLink>
         </li>
         <li>
-          <NavLink to='/Toys' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('Toys')}>
+          <NavLink to='/Toys' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('Toys')}>
             Toys
           </NavLink>
         </li>
         <li>
-          <NavLink to='/Others' className="text-black hover:text-blue-500"
-          onClick={() => context.setSearchCategory('jewelery')}>
+          <NavLink to='/Others' className="text-black hover:text-blue-500" onClick={() => context.setSearchCategory('jewelery')}>
             Others
           </NavLink>
         </li>
       </ul>
+      
+      {/* Logo in the middle of the Navbar */}
+      <div className="flex justify-center absolute left-1/2 transform -translate-x-1/2">
+        <Link to="/shopi">
+          <img src="/Asimplelogo.png" alt="Logo" className="h-20 object-contain" />
+        </Link>
+      </div>
+
       <ul className="flex items-center space-x-4">
         {/* If the user is authenticated, show the My Orders and My Account links */}
         {isAuthenticated() ? (
@@ -107,7 +111,7 @@ const Navbar = () => {
           </>
         )}
         <li className="relative">
-          <NavLink  className="hover:text-blue-500">
+          <NavLink className="hover:text-blue-500">
             <FontAwesomeIcon icon={faCartPlus} />
           </NavLink>
           {/* Shopping Cart Icon with item count */}
@@ -118,6 +122,6 @@ const Navbar = () => {
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;

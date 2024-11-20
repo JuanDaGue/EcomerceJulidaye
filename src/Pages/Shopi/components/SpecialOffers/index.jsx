@@ -18,10 +18,10 @@ const SpecialOffers = () => {
   };
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12">
       <div className="text-center">
         <h2 className="text-3xl font-semibold">Ofertas Especiales</h2>
-        <p className="mt-4">Descubre nuestras ofertas de tiempo limitado en los mejores productos</p>
+        <p className="mt-4 text-white">Descubre nuestras categorias de los mejores productos</p>
       </div>
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
         {categories.map(category => (

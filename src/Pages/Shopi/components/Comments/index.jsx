@@ -28,7 +28,7 @@ const Proverbios = () => {
     <section className="py-16 bg-gradient-to-r text-white">
       <div className="text-center mb-12">
         <h2 className="text-5xl font-extrabold drop-shadow-lg">Artesanías y manualidades enfocadas en el espíritu</h2>
-        <p className="mt-4 text-2xl italic">El arte nos invita a detenernos, reflexionar y conectar con la belleza que nos rodea.</p>
+        <p className="mt-4 text-2xl italic text-white">El arte nos invita a detenernos, reflexionar y conectar con la belleza que nos rodea.</p>
       </div>
       <div className="flex flex-wrap justify-center gap-8 px-6">
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full transform transition-transform duration-500 hover:scale-105 relative">

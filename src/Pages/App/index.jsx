@@ -12,6 +12,10 @@ import { ShoppingCartProvider } from '../../Context';
 import CheckoutSideMenu from '../../Components/CheckoutSideMenu';
 import EcommerceCard from '../Shopi';
 import { isAuthenticated } from '../../Components/Utils'; // Import the authentication utility
+import AboutUs from '../AboutUs';
+import Contact from '../Contact';
+import Politicas from '../Politics';
+import Footer from '../Shopi/components/Footer';
 
 // Component to handle protected routes
 const ProtectedRoute = ({ element }) => {
@@ -39,6 +43,9 @@ const AppRoutes = () => {
     { path: '/Others', element: <Home /> },
     { path: '/Shopi', element: <EcommerceCard /> },
     { path: '/*', element: <NotFound /> },
+    {path: '/aboutus', element:<AboutUs/>},
+    {path: '/contact', element:<Contact/>},
+    {path: '/politics', element:<Politicas/>},
   ]);
   return routes;
 };
@@ -50,6 +57,7 @@ function App() {
         <Navbar />
         <AppRoutes />
         <CheckoutSideMenu />
+        <Footer/>
       </BrowserRouter>
     </ShoppingCartProvider>
   );

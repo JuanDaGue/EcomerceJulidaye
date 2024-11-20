@@ -13,9 +13,9 @@ function EcommerceCard() {
           <Header />
           <Collage />
           <Comments />
-          <SocialMedia />
           <SpecialOffers />
-          <Footer />
+          <SocialMedia />
+          {/* <Footer /> */}
         </div>
       );
 }

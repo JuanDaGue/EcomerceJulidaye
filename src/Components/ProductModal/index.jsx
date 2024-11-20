@@ -3,7 +3,7 @@ import Detail from "../Detail";
   import ReactDOM from 'react-dom';
   import './modal.css';
 const ProductModal = ({children}) => {
-  return ReactDOM.createPortal(<div className="Modalclass py-12 px-6 z-100">{children} </div>,document.getElementById('modal'));
+  return ReactDOM.createPortal(<div className="Modalclass py-24 px-6 z-100">{children} </div>,document.getElementById('modal'));
    
   };
   
