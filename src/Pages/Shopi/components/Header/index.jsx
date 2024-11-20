@@ -18,7 +18,7 @@ const Header = () => {
         "Descubre la belleza de nuestros productos artesanales, cuidadosamente elaborados a mano con pasión y dedicación."
         </p>
         <Link to="/" className="mt-6 inline-block px-8 py-3 bg-yellow-500 hover:bg-yellow-600 text-black transition duration-300 ease-in-out rounded-lg text-lg lg:text-xl font-semibold shadow-lg">
-          Adelante
+        BIENVENIDO
         </Link>
       </div>
     </header>

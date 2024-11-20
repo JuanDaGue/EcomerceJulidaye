@@ -30,7 +30,7 @@ function Home() {
   return (
           <Layout>
     
-        <section className="bg-gray-50 py-12 px-6">
+        <section className="py-12 px-6">
         <div className="container mx-auto flex flex-col items-center justify-between">
     <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">{window.location.href.split('/').pop()} Items</h2>
     
