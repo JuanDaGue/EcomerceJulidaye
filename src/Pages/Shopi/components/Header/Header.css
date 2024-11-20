@@ -1,0 +1,11 @@
+/* Header.css */
+.header-bg {
+    background-image: url('Portada.png'); /* Replace with the actual image path */
+    background-size: cover; /* Make sure the image covers the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    /* Control the transparency of the image */
+  }
+  
