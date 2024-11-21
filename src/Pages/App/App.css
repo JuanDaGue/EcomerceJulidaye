@@ -15,9 +15,9 @@ body {
 
 
   body{
-    background-image: url('Nubes.jpg'); /* Replace with the actual image path */
-    background-size: cover; /* Make sure the image covers the entire area */
-    background-position: center; /* Center the background image */
+    background-image: url('./../../public/Nubes.jpg');
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
