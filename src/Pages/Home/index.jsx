@@ -8,6 +8,8 @@ import ProductModal from '../../Components/ProductModal';
 
 function Home() {
   const { openModal } = useContext(ShoppingCartContext);
+
+  console.log(openModal)
   const context = useContext(ShoppingCartContext);
   const render=(item) =>{
     
