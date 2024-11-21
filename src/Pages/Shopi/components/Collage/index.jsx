@@ -1,10 +1,11 @@
 import { ShoppingCartContext } from '../../../../Context';
 import React, { useContext, useEffect, useState } from 'react';
+import SkeletonLoader from '../../../../Components/SkeletonLoader'; // Import SkeletonLoader
 
 const Collage = () => {
   const context = useContext(ShoppingCartContext);
   const [randomNumbers, setRandomNumbers] = useState([]);
-  //console.log(context.items)
+
   // Close the checkout side menu immediately
   useEffect(() => {
     context.setIsCheckoutSideMenuOpen(false);
@@ -31,16 +32,14 @@ const Collage = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-gray-800">
-          Featured Products
-        </h2>
+        <h2 className="text-4xl font-bold text-gray-800">Featured Products</h2>
         <p className="mt-2 text-lg text-gray-600">
           Discover our most popular products selected just for you.
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4 lg:px-12">
-        {context.items &&
+        {context.items?.length > 0 ? (
           randomNumbers.map((element, index) => (
             <div key={index} className="relative group">
               <img
@@ -59,7 +58,10 @@ const Collage = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <SkeletonLoader count={4} />
+        )}
       </div>
     </section>
   );

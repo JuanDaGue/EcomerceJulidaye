@@ -55,7 +55,6 @@ export const ShoppingCartProvider = ({ children }) => {
       item.category?.name.toLowerCase().includes(searchCategory.toLowerCase())
     );
   };
-  console.log(openModal)
   return (
     <ShoppingCartContext.Provider value={{
       count,

@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center fixed z-30 top-0 w-full py-4 px-6 bg-white shadow-md text-sm font-light">
+    <nav className="flex justify-between items-center fixed z-30 top-0 w-full py-8 px-6 bg-white shadow-md text-sm font-light">
       {/* Left navigation links */}
       <NavLinks className="hidden md:flex" />
 
