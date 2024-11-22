@@ -1,4 +1,8 @@
-import { createContext, useState, useEffect, useContext } from "react";
+// src/context/ShoppingCartContext.js
+
+import { createContext, useState, useEffect } from 'react';
+import { fetchProducts } from '../Api/products';
+import { fetchCategories } from '../Api/categories';
 
 export const ShoppingCartContext = createContext();
 
@@ -21,28 +25,26 @@ export const ShoppingCartProvider = ({ children }) => {
   const [searchCategory, setSearchCategory] = useState('');
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const loadProducts = async () => {
       try {
-        const resp = await fetch('https://express-4c46.onrender.com/api/v1/products?price_max=10000000');
-        const data = await resp.json();
+        const data = await fetchProducts(10000000);
         setItems(data);
       } catch (error) {
-        console.error(error);
+        console.error('Error loading products:', error);
       }
     };
 
-    const fetchCategories = async () => {
+    const loadCategories = async () => {
       try {
-        const response = await fetch('https://express-4c46.onrender.com/api/v1/categories');
-        const data = await response.json();
+        const data = await fetchCategories();
         setCategories(data);
       } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error('Error loading categories:', error);
       }
     };
 
-    fetchItems();
-    fetchCategories();
+    loadProducts();
+    loadCategories();
   }, []);
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export const ShoppingCartProvider = ({ children }) => {
       item.category?.name.toLowerCase().includes(searchCategory.toLowerCase())
     );
   };
+
   return (
     <ShoppingCartContext.Provider value={{
       count,

@@ -1,27 +1,31 @@
+// src/pages/SignUp.js
 import React, { useState } from 'react';
-import { saveUser, setAuthState } from '../../Components/Utils';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../Components/Layout';
+import { createUser } from '../../Api/auth';
 
 const SignUp = () => {
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ email: '', password: '', role: 'customer' });
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    saveUser(form);
-    setAuthState(true);
-    navigate('/MyAccount');
-  };
-
-  const handleSignOut = () => {
-    setAuthState(false);
-    alert('You have successfully signed out!');
-    navigate('/');  // Redirect to homepage or login
+    try {
+      const data = await createUser(form);
+      if (data.id) {
+        setMessage('User created successfully! Redirecting to My Account...');
+        navigate('/MyAccount');
+      } else {
+        setMessage('User creation failed: ' + data.message);
+      }
+    } catch (error) {
+      setMessage('An error occurred: ' + error.message);
+    }
   };
 
   return (
@@ -29,14 +33,6 @@ const SignUp = () => {
       <div className="p-6">
         <h2 className="text-2xl mb-4">Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <input 
-            name="name" 
-            type="text" 
-            placeholder="Name" 
-            value={form.name} 
-            onChange={handleChange}
-            className="block mb-4 p-2 border"
-          />
           <input 
             name="email" 
             type="email" 
@@ -53,13 +49,11 @@ const SignUp = () => {
             onChange={handleChange}
             className="block mb-4 p-2 border"
           />
+
           <button type="submit" className="bg-blue-500 text-white p-2 rounded">Create</button>
         </form>
 
-        {/* Sign Out Button */}
-        <button onClick={handleSignOut} className="mt-4 bg-red-500 text-white p-2 rounded">
-          Sign Out
-        </button>
+        {message && <p className="mt-4 text-red-500">{message}</p>}
       </div>
     </Layout>
   );

@@ -15,7 +15,7 @@ body {
 
 
   body{
-    background-image: url('./../../../public/Nubes.jpg');
+    background-image: url('/Nubes.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
