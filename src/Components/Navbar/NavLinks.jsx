@@ -7,12 +7,12 @@ const NavLinks = ({ className }) => {
   const context = useContext(ShoppingCartContext);
 
   const links = [
-    { path: "/", label: "All", category: "" },
+    { path: "/", label: "Galeria", category: "" },
     { path: "/Cuadros", label: "Cuadros", category: "Cuadros" },
     { path: "/Esculturas", label: "Esculturas", category: "Esculturas" },
     { path: "/Artesanias", label: "Artesanias", category: "Artesanias" },
-    { path: "/Toys", label: "Toys", category: "Toys" },
-    { path: "/Others", label: "Others", category: "jewelery" },
+    { path: "/Toys", label: "Juegos", category: "Toys" },
+    { path: "/Others", label: "Otros", category: "jewelery" },
   ];
 
   return (
@@ -21,7 +21,7 @@ const NavLinks = ({ className }) => {
         <li key={link.path}>
           <NavLink
             to={link.path}
-            className="text-black hover:text-blue-500"
+            className={link.path === "/" ? "font-bold text-blue-500 hover:text-blue-700" : "text-black hover:text-blue-500"}
             onClick={() => context.setSearchCategory(link.category)}
           >
             {link.label}

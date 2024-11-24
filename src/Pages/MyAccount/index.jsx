@@ -45,13 +45,13 @@ function MyAccount() {
       <section className="bg-gray-50 py-12 px-6">
         <div className="p-6 border-b border-gray-200">
           <div className="p-6">
-            <h2 className="text-2xl mb-4">My Account</h2>
-            <p><strong>Name:</strong> {account.email.split('@')[0]}</p>
+            <h2 className="text-2xl mb-4">Mi  Cuenta</h2>
+            <p><strong>Nombre:</strong> {account.email.split('@')[0]}</p>
             <p><strong>Email:</strong> {account.email}</p>
             <button 
               onClick={handleSignOut} 
               className="mt-4 bg-red-500 text-white p-2 rounded">
-              Sign Out
+              Cerrar Sesión
             </button>
           </div>
         </div>

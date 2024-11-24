@@ -84,7 +84,7 @@ function Card({data}) {
                     <span className="text-xl font-bold text-green-600">${data.price}</span>
                     <button className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-600 z-10"
                     onClick={(event) => appcart(event, data)}>
-                        Buy Now
+                        Lo Quiero
                     </button>
                 </div>
             </div>

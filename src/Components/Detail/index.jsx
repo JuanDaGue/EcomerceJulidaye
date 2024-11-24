@@ -51,7 +51,7 @@ function Detail() {
               className="bg-blue-500 text-white m-3 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-600 z-1"
               onClick={(event) => appcart(event, productShow)}
             >
-              Buy Now
+              Lo Quiero
             </button>
           </div>
           <div className="card-buttons">

@@ -7,24 +7,24 @@ import SkeletonLoader from '../../Components/SkeletonLoader';
 import { ShoppingCartContext } from '../../Context';
 
 function Home() {
-  const { openModal, itemsf, setSearchItem } = useContext(ShoppingCartContext);
+  const { openModal, itemsf, setSearchItem , items} = useContext(ShoppingCartContext);
 
   const renderContent = () => {
-    if (itemsf === null || itemsf === undefined) {
-      // Show skeleton loader while items are loading
+    if (itemsf === null || itemsf === undefined || items.length ===0) {
+      // Mostrar el cargador esqueleto mientras se cargan los elementos
       return <SkeletonLoader count={8} />;
     }
 
     if (itemsf.length > 0) {
-      // Render fetched items
+      // Renderizar los elementos obtenidos
       return itemsf.map((item) => <Card key={item.id} data={item} />);
     }
 
-    // Show "No results found" message if no items
+    // Mostrar mensaje "No se encontraron resultados" si no hay elementos
     return (
       <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 flex justify-center items-center h-64">
         <p className="text-center text-gray-500 font-semibold text-lg bg-gray-100 py-4 px-6 rounded-md shadow-sm">
-          No results found.
+          No se encontraron resultados.
         </p>
       </div>
     );
@@ -35,12 +35,12 @@ function Home() {
       <section className="py-12 px-6">
         <div className="container mx-auto flex flex-col items-center justify-between">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            {window.location.href.split('/').pop()} Items
+            {window.location.href.split('/').pop()} Artículos
           </h2>
 
           <input
             type="text"
-            placeholder="Search a product"
+            placeholder="Buscar un producto"
             className="w-full max-w-md p-3 border border-gray-300 rounded-md shadow-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 mb-8"
             onChange={(event) => setSearchItem(event.target.value)}
           />
