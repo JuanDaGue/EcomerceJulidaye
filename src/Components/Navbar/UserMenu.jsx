@@ -20,8 +20,6 @@ const UserMenu = ({ className }) => {
     context.setIsCheckoutSideMenuOpen(!context.isCheckoutSideMenuOpen);
   };
 
-  const totalItemsInCart = context.cartProducts.reduce((total, product) => total + product.quantity, 0);
-console.log(context.count)
   return (
     <ul className={`${className} items-center space-x-4`}>
       {isAuthenticated() ? (
@@ -56,15 +54,15 @@ console.log(context.count)
           </li>
         </>
       )}
-<li className="relative">
-          <NavLink  className="hover:text-blue-500">
-            <FontAwesomeIcon icon={faCartPlus} />
-          </NavLink>
-          {/* Shopping Cart Icon with item count */}
-          <span className="absolute top-0 right-0 left-5 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
-            {context.cartProducts.length}
-          </span>
-        </li>
+      <li className="relative">
+        <NavLink onClick={toggleCart} className="hover:text-blue-500">
+          <FontAwesomeIcon icon={faCartPlus} />
+        </NavLink>
+        {/* Shopping Cart Icon with item count */}
+        <span className="absolute top-0 right-0 left-5 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+          {context.cartProducts.length}
+        </span>
+      </li>
     </ul>
   );
 };
